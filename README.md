@@ -1,7 +1,7 @@
 # Spring Boot Session Managment With Redis
 
 ### Architecture
-![Architecture](assets/architecture.png)
+![Architecture](assets/architecture.PNG)
 
 ### Application Logic
 When you log in using the application, your session is saved to Redis. This means that even if the application is restarted, your session will not be invalidated because it is already stored in Redis.
