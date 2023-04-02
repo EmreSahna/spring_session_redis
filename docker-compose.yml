@@ -1,0 +1,52 @@
+version: '3.7'
+
+services:
+    app:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: register-app
+        image: 'register-app:latest'
+        ports:
+            - '8080:8080'
+        environment:
+            - spring.data.redis.host=session-db
+            - spring.data.redis.port=6379
+            - spring.jpa.hibernate.ddl-auto=create-drop
+            - spring.datasource.url=jdbc:mysql://user-db:3306/logintest?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
+            - spring.datasource.username=root
+            - spring.datasource.password=root123
+            - server.port=8080
+            - spring.application.name=register-app
+        depends_on:
+            - session-db
+            - user-db
+        networks:
+            - register-app-network
+    session-db:
+        image: redis:latest
+        container_name: redis-db
+        ports:
+            - '6379:6379'
+        networks:
+            - register-app-network
+    user-db:
+        container_name: user-db
+        image: 'mysql:latest'
+        restart: always
+        ports:
+            - '3306:3306'
+        volumes:
+            - mysql-data:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: root123
+            MYSQL_PASSWORD: root123
+        networks:
+            - register-app-network
+
+networks:
+    register-app-network:
+        driver: bridge
+
+volumes:
+    mysql-data:
