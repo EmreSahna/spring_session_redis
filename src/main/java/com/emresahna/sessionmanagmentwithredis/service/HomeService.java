@@ -16,6 +16,6 @@ public class HomeService {
         if (username == null) {
             return "Please login first";
         }
-        return "Welcome " + httpSession.getAttribute("username");
+        return "Welcome " + username;
     }
 }

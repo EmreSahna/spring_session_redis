@@ -18,6 +18,8 @@ services:
             - spring.datasource.password=root123
             - server.port=8080
             - spring.application.name=register-app
+            - spring.session.timeout=10
+            - spring.session.redis.namespace=user
         depends_on:
             - session-db
             - user-db

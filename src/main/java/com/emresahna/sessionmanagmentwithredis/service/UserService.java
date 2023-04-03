@@ -33,4 +33,9 @@ public class UserService {
         }
         return "Invalid username or password";
     }
+
+    public String logout() {
+        httpSession.invalidate();
+        return "Successfully logged out";
+    }
 }

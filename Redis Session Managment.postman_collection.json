@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "5a371298-9560-43e9-b136-765bd86d4e51",
+		"_postman_id": "20db433b-e839-4991-9bf9-9b27e0560394",
 		"name": "Redis Session Managment",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18820836"
 	},
 	"item": [
 		{
@@ -31,7 +32,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\":\"emrea\",\r\n    \"password\":\"123\"\r\n}",
+					"raw": "{\r\n    \"username\":\"emre\",\r\n    \"password\":\"123\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -39,13 +40,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/login",
+					"raw": "http://localhost:8080/auth/login",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"auth",
 						"login"
 					]
 				}
@@ -59,7 +61,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\":\"emrea\",\r\n    \"password\":\"123\"\r\n}",
+					"raw": "{\r\n    \"username\":\"emre\",\r\n    \"password\":\"123\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -76,6 +78,26 @@
 					"path": [
 						"auth",
 						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/auth/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"logout"
 					]
 				}
 			},

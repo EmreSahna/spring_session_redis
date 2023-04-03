@@ -6,11 +6,19 @@
 ### Application Logic
 When you log in using the application, your session is saved to Redis. This means that even if the application is restarted, your session will not be invalidated because it is already stored in Redis.
 
+## Files
+- [Docker Compose File](docker-compose.yml)
+- [Postman Collection](Redis Session Managment.postman_collection.json)
+- [Dockerfile](Dockerfile)
+- [Application Properties](src/main/resources/application.properties)
+
 ## Technologies
 - Java 17
 - Spring Boot 3.0
 - Spring Data JPA
+- Spring Session
 - Redis
+- Lombok
 - MySQL Database
 - Restful API
 - Maven

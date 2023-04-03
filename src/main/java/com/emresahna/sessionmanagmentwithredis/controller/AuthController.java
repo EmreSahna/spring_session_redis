@@ -25,4 +25,9 @@ public class AuthController {
     public ResponseEntity<String> login(@RequestBody LoginDto loginDto) {
         return ResponseEntity.ok(userService.login(loginDto));
     }
+
+    @GetMapping("/logout")
+    public ResponseEntity<String> logout() {
+        return ResponseEntity.ok(userService.logout());
+    }
 }
